@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <rect width="100%" height="100%" fill="#1C3D7A" rx="32"/>
+  <g transform="translate(48,48)">
+    <circle cx="80" cy="40" r="44" fill="#D4AF37" />
+    <text x="80" y="56" font-family="Poppins, sans-serif" font-size="48" text-anchor="middle" fill="#0F1724">P</text>
+    <polygon points="60,0 80,18 100,0 92,18 80,8 68,18" fill="#0F1724" transform="translate(0,-10)"/>
+  </g>
+</svg>
