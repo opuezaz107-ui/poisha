@@ -39,7 +39,9 @@ This document lists steps and safety recommendations for deploying Poisha to Pol
 - Lock liquidity and publish proof (recommended).
 - Submit listing requests (CoinGecko / CoinMarketCap) with verified contract address.
 
+Support contact
+- For support and inquiries: charging.bull.org@gmail.com
+
 Security notes
 - Never expose PRIVATE_KEY in the repo. Use a hardware wallet or Gnosis Safe.
 - Use a multisig as the owner; consider a timelock or DAO for future decentralization.
-

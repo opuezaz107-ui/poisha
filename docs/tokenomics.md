@@ -11,3 +11,5 @@
 Owner/Initial holder: 0x74d9e578c36dE86046F795C26c069239d645770B (provided)
 
 Referral (demo): 100 PISHA per verified referral — configurable via backend.
+
+Support contact: charging.bull.org@gmail.com
