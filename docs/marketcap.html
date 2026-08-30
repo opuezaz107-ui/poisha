@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Poisha — Token Market Cap</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;max-width:900px;margin:36px auto;color:#111}
+    header{display:flex;align-items:center;gap:16px}
+    img.logo{width:64px;height:64px}
+    .card{border:1px solid #eee;padding:16px;border-radius:8px;margin-top:16px}
+    .muted{color:#666;font-size:14px}
+    .big{font-size:28px;font-weight:700}
+  </style>
+</head>
+<body>
+  <header>
+    <img src="/docs/assets/poisha-256.png" class="logo" alt="Poisha logo" onerror="this.style.display='none'"/>
+    <div>
+      <h1>Poisha (PISHA)</h1>
+      <div class="muted">Support: charging.bull.org@gmail.com</div>
+    </div>
+  </header>
+
+  <section class="card">
+    <div class="muted">Contract (Polygon):</div>
+    <div id="contract"><i>Not set</i></div>
+    <div class="muted" style="margin-top:8px">Price: <span id="price">—</span> &nbsp; Market cap: <span id="mcap">—</span></div>
+    <div style="margin-top:12px">
+      <button id="buyBtn" disabled>Buy on QuickSwap</button>
+    </div>
+  </section>
+
+  <section class="card" style="margin-top:20px">
+    <div class="muted">Tokenomics</div>
+    <div>Total supply: <span id="supply">1,000,000,000</span> PISHA (18 decimals)</div>
+    <div>Circulating supply: <span id="circulating">TBD</span></div>
+  </section>
+
+  <section class="card" style="margin-top:20px">
+    <h3>Listing status</h3>
+    <div id="listingStatus">Drafts prepared. Submit to CoinGecko / CoinMarketCap via docs/listings/.</div>
+  </section>
+
+  <script>
+    // Editable config — update in docs/marketcap.json in repo to show live values
+    const cfg = {
+      contract: '<PASTE_CONTRACT_ADDRESS_HERE>',
+      totalSupply: 1000000000,
+      circulating: null,
+      pairUrl: null
+    };
+
+    document.getElementById('contract').innerText = cfg.contract || 'Not set';
+    document.getElementById('supply').innerText = cfg.totalSupply.toLocaleString();
+    document.getElementById('circulating').innerText = cfg.circulating ? cfg.circulating.toLocaleString() : 'TBD';
+
+    if (cfg.pairUrl) {
+      const btn = document.getElementById('buyBtn');
+      btn.disabled = false;
+      btn.onclick = () => window.open(cfg.pairUrl, '_blank');
+    }
+
+    // Price fetching is not available until a pair exists or CoinGecko lists the token.
+    document.getElementById('price').innerText = '—';
+    document.getElementById('mcap').innerText = '—';
+  </script>
+</body>
+</html>

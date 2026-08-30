@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, scaffold/branding, scaffold/final-token ]
+
+jobs:
+  build-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install & Build frontend
+        working-directory: frontend
+        run: |
+          npm ci
+          npm run build
+
+  test-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install deps
+        run: |
+          npm ci
+      - name: Run hardhat tests
+        run: |
+          npx hardhat test
+
+  deploy:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    needs: [build-frontend, test-contracts]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install deps
+        run: npm ci
+      - name: Deploy to Polygon
+        env:
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          ALCHEMY_POLYGON_URL: ${{ secrets.ALCHEMY_POLYGON_URL }}
+          TOKEN_NAME: "Poisha"
+          TOKEN_SYMBOL: "PISHA"
+          TOKEN_CAP: "1000000000"
+          TOKEN_DECIMALS: "18"
+          OWNER_ADDRESS: ${{ secrets.OWNER_ADDRESS }}
+          MINT_TO: ${{ secrets.MINT_TO }}
+          MINT_AMOUNT: ${{ secrets.MINT_AMOUNT }}
+        run: |
+          npx hardhat run --network polygon scripts/deploy.js
