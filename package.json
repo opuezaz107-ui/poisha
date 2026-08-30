@@ -1,0 +1,16 @@
+{
+  "name": "poisha-contracts",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:mumbai": "hardhat run --network mumbai scripts/deploy.js",
+    "deploy:polygon": "hardhat run --network polygon scripts/deploy.js"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "hardhat": "^2.17.0",
+    "dotenv": "^16.3.1"
+  }
+}
