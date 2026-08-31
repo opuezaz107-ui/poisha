@@ -1,16 +1,4 @@
-{A@https://app.uniswap.org/assets/currencyId-BE8-CPjV.js:1:1592
-c@https://app.uniswap.org/assets/currencyId-BE8-CPjV.js:1:1879
-T@https://app.uniswap.org/assets/currencyId-BE8-CPjV.js:1:809
-j@https://app.uniswap.org/assets/redirects-BdK6dYLc.js:1:588
-jc@https://app.uniswap.org/assets/client-CbkKnSYl.js:8:47734
-fe@https://app.uniswap.org/assets/client-CbkKnSYl.js:8:70333
-s1@https://app.uniswap.org/assets/client-CbkKnSYl.js:8:80450
-uv@https://app.uniswap.org/assets/client-CbkKnSYl.js:8:116198
-Dm@https://app.uniswap.org/assets/client-CbkKnSYl.js:8:115280
-se@https://app.uniswap.org/assets/client-CbkKnSYl.js:8:115118
-r1@https://app.uniswap.org/assets/client-CbkKnSYl.js:8:111955
-bv@https://app.uniswap.org/assets/client-CbkKnSYl.js:8:123607
-gu@https://app.uniswap.org/assets/client-CbkKnSYl.js:1:1774
+{
   "contract": "TBD",
   "totalSupply": 1000000000,
   "circulating": null,
